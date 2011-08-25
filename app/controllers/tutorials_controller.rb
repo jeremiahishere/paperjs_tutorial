@@ -3,6 +3,7 @@ class TutorialsController < ApplicationController
   # creating a point
   # creating a size
   # using a point or size to create a rectangle
+  # segments
   def part_one
   end
 
