@@ -1,4 +1,4 @@
-<h1>Part Two: Shapes</h2>
+<h1>Shapes</h2>
 
 <p>A circle can be created with the Circle Command</p>
 <code>
@@ -25,11 +25,13 @@ rect_circle.point = new Point(100, 50)<br />
 rect_circle.smooth()<br />
 </code>
 <script type="text/paperscript" canvas="rect_circle_canvas">
+  project.currentStyle = {
+    strokeColor: 'black'
+  }
   var loc = new Point(50, 38)
   var size = new Size(25, 25)
   var rect = new Path.Rectangle(loc, size)
   rect.selected = true
-  rect.strokeColor = 'black'
   var rect_circle = rect.clone()
   rect_circle.position = new Point(100, 50)
   rect_circle.smooth()
@@ -56,23 +58,23 @@ var rounded_rect = new Path.RoundRectangle(rectangle, corner_size);<br />
 </code>
 <br />
 <script type="text/paperscript" canvas="polygon_canvas">
+  project.currentStyle = {
+    strokeColor: 'black'
+  }
   var loc = new Point(50, 50)
   var sides = 7
   var size = 50
   var heptagon = new Path.RegularPolygon(loc, sides, size)
-  heptagon.strokeColor = 'black'
 
   var loc = new Point(150, 50)
   var sides = 3
   var size = 50 
   var triangle = new Path.RegularPolygon(loc, sides, size)
-  triangle.strokeColor = 'black'
 
   var loc = new Point(250,5);
   var size = new Size(75, 75);
   var rectangle = new Rectangle(loc, size);
   var corner_size = new Size(10, 10);
   var rounded_rect = new Path.RoundRectangle(rectangle, corner_size);
-  rounded_rect.strokeColor = 'black'
 </script>
 <canvas id="polygon_canvas" width="500" height="100"></canvas>

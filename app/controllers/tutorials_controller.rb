@@ -9,11 +9,11 @@ class TutorialsController < ApplicationController
 
   # circle, rounded rectangle, various sized polygons
   # set selected to true at some point
-  def part_two
+  def shapes 
   end
 
   # stroke style, fill color, opacity
-  def part_three
+  def styles 
   end
 
   # animation example using onFrame
