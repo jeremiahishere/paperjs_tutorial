@@ -1,17 +1,79 @@
 <h1>Styling a Path</h1>
 
-<p>Styles to use include</p>
-<ul>
-  <li>strokeColor</li>
-  <li>strokeWidth</li>
-  <li>fillColor</li>
-</ul>
-<p>Styles can be removed by setting them to null.</p>
-<p>A style object can be used to set styles for a path.  It can also be used to set all styles for a canvas or project.</p>
+<p>Paths can be styled using strokeColor, strokeWidth, and fillColor.  These values can be set individually or in a style object.  The members of the object are all optional.</p>
+<code>
+var circle1 = new Path.Circle(new Point(50, 50), 40)<br />
+circle1.strokeColor = 'black'<br />
+circle1.fillColor = 'green'<br />
+circle1.strokeWidth = 5<br />
+<br />
+var circle2 = new Path.Circle(new Point(200,50), 40)<br />
+var style = {<br />
+&nbsp;&nbsp;strokeColor: 'green',<br />
+&nbsp;&nbsp;fillColor: 'black',<br />
+&nbsp;&nbsp;strokeWidth: 10<br />
+}<br />
+circle2.style = style<br />
+</code>
+<script type="text/paperscript" canvas="style_canvas">
+  var circle1 = new Path.Circle(new Point(50, 50), 40)
+  circle1.strokeColor = 'black'
+  circle1.fillColor = 'green'
+  circle1.strokeWidth = 5
+  
+  var circle2 = new Path.Circle(new Point(200,50), 40)
+  var style = {
+    strokeColor: 'green',
+    fillColor: 'black',
+    strokeWidth: 10
+  }
+  circle2.style = style
+</script>
+<canvas id="style_canvas" width="500" height="100"></canvas>
+<p>Project wide default styles can be created by setting a project.currentStyle object</p>
+<code>
+project.currentStyle = {<br />
+  strokeColor: 'green',<br />
+  fillColor: 'black',<br />
+  strokeWidth: 10<br />
+}<br />
+</code>
+<br />
 <p>Some styling features can be applied to objects but do not use the style system.</li>
 <ul>
   <li>opacity</li>
   <li>scaling</li>
   <li>rotation</li>
-  <li>selected (for debugging purposes)</li>
 </ul>
+<code>
+var rect = new Path.Rectangle(new Point(25,25), new Size(50,50))<br />
+rect.fillColor = "red"<br />
+<br />
+var rect2 = rect.clone()<br />
+rect2.position = new Point(75, 25)<br />
+rect2.fillColor = "blue"<br />
+rect2.opacity = 0.75<br />
+<br />
+var rect3 = rect.clone()<br />
+rect3.position = new Point(200, 50)<br />
+rect3.scale(1.5)<br />
+rect3.rotate(45)<br />
+</code>
+<script type="text/paperscript" canvas="object_style_canvas">
+  project.currentStyle = {
+    strokeColor: "black"
+  }
+  var rect = new Path.Rectangle(new Point(25,25), new Size(50,50))
+  rect.fillColor = "red"
+
+  var rect2 = rect.clone()
+  rect2.position = new Point(75, 25)
+  rect2.fillColor = "blue"
+  rect2.opacity = 0.75
+
+  var rect3 = rect.clone()
+  rect3.position = new Point(200, 50)
+  rect3.scale(1.5)
+  rect3.rotate(45)
+</script>
+<canvas id="object_style_canvas" width="500" height ="100"></canvas>
