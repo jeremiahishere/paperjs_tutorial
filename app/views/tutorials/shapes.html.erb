@@ -1,11 +1,11 @@
 <h1>Shapes</h1>
 
 <p>A circle can be created with the Circle Command</p>
-<code>
-var circle_location = new Point(50, 50)<br />
-var circle_size = 25<br />
-var circ = new Path.Circle(circle_location, circle_size)<br />
-</code>
+<pre>
+var circle_location = new Point(50, 50)
+var circle_size = 25
+var circ = new Path.Circle(circle_location, circle_size)
+</pre>
 <script type="text/paperscript" canvas="circle_canvas">
   var circle_location = new Point(50, 50)
   var circle_size = 25
@@ -15,15 +15,15 @@ var circ = new Path.Circle(circle_location, circle_size)<br />
 <canvas id="circle_canvas" width="500" height="100"></canvas>
 
 <p>A circle consists of four points with paths connection them with smoothing set to rounded.  A square can be turned into a circle by calling smooth on it.  The two rectangle paths have been marked as selected to show that the vertices have not changed.</p>
-<code>
-var loc = new Point(50, 50)<br />
-var size = new Size(25, 25)<br />
-var rect = new Path.Rectangle(loc, size)<br />
-<br />
-var rect_circle = rect.clone()<br />
-rect_circle.point = new Point(100, 50)<br />
-rect_circle.smooth()<br />
-</code>
+<pre>
+var loc = new Point(50, 50)
+var size = new Size(25, 25)
+var rect = new Path.Rectangle(loc, size)
+
+var rect_circle = rect.clone()
+rect_circle.point = new Point(100, 50)
+rect_circle.smooth()
+</pre>
 <script type="text/paperscript" canvas="rect_circle_canvas">
   project.currentStyle = {
     strokeColor: 'black'
@@ -39,23 +39,23 @@ rect_circle.smooth()<br />
 <canvas id="rect_circle_canvas" width="500" height="100"></canvas>
 
 <p>Other shapes include rounded rectangles and polygons</p>
-<code>
-var loc = new Point(50, 50)<br />
-var sides = 7<br />
-var size = 50<br />
-var heptagon = new Path.RegularPolygon(loc, sides, size)<br />
-<br />
-var loc = new Point(150, 50)<br />
-var sides = 3<br />
-var size = 50 <br />
-var triangle = new Path.RegularPolygon(loc, sides, size)<br />
-<br />
-var loc = new Point(250, 25);<br />
-var size = new Size(75, 75);<br />
-var rectangle = new Rectangle(loc, size);<br />
-var corner_size = new Size(10, 10);<br />
-var rounded_rect = new Path.RoundRectangle(rectangle, corner_size);<br />
-</code>
+<pre>
+var loc = new Point(50, 50)
+var sides = 7
+var size = 50
+var heptagon = new Path.RegularPolygon(loc, sides, size)
+
+var loc = new Point(150, 50)
+var sides = 3
+var size = 50 
+var triangle = new Path.RegularPolygon(loc, sides, size)
+
+var loc = new Point(250, 25);
+var size = new Size(75, 75);
+var rectangle = new Rectangle(loc, size);
+var corner_size = new Size(10, 10);
+var rounded_rect = new Path.RoundRectangle(rectangle, corner_size);
+</pre>
 <br />
 <script type="text/paperscript" canvas="polygon_canvas">
   project.currentStyle = {

@@ -1,36 +1,36 @@
 <h1>Objects</h1>
 
 <p>Objects are cool.  Here they have been used to improve the example from the previous tutorial.  Initialize is automatically called on when new is called for the object.  Updating a separate point object called loc is useful when updating the location of multiple objects.</p>
-<code>
-var MovingRectangle = Base.extend({<br />
-  initialize: function()  {<br />
-    this.loc = view.center<br />
-    this.rect = Path.Rectangle(this.loc, new Size(50,50))<br />
-    this.state = "left"<br />
-  },<br />
-  update: function()  {<br />
-    if(this.loc.x <= 0)  {<br />
-      this.state = "right"<br />
-    } else if(this.loc.x >= view.size.width)  {<br />
-      this.state = "left"<br />
-    }<br />
-<br />
-    if(this.state == "left")  {<br />
-      this.loc.x -= 2<br />
-    } else {<br />
-      this.loc.x += 2<br />
-    }<br />
-<br />
-    this.rect.position = this.loc<br />
-  },<br />
-})<br />
-<br />
-var moving_rect = new MovingRectangle()<br />
-<br />
-function onFrame(event)  {<br />
-  moving_rect.update()<br />
-}<br />
-</code>
+<pre>
+var MovingRectangle = Base.extend({
+  initialize: function()  {
+    this.loc = view.center
+    this.rect = Path.Rectangle(this.loc, new Size(50,50))
+    this.state = "left"
+  },
+  update: function()  {
+    if(this.loc.x <= 0)  {
+      this.state = "right"
+    } else if(this.loc.x >= view.size.width)  {
+      this.state = "left"
+    }
+
+    if(this.state == "left")  {
+      this.loc.x -= 2
+    } else {
+      this.loc.x += 2
+    }
+
+    this.rect.position = this.loc
+  },
+})
+
+var moving_rect = new MovingRectangle()
+
+function onFrame(event)  {
+  moving_rect.update()
+}
+</pre>
 <script type='text/paperscript' canvas='animate_canvas'>
   project.currentStyle = {
     strokeColor: "black"
@@ -68,44 +68,44 @@ function onFrame(event)  {<br />
 <canvas id='animate_canvas' width='500' height='200'></canvas>
 <br />
 <p>A more complex example.  Doing this without objects would be annoying.</p>
-<code>
-var MovingRectangle = Base.extend({<br />
-  initialize: function()  {<br />
-    this.loc = Point.random() * view.size<br />
-    this.rect = Path.Rectangle(this.loc, new Size(50,50))<br />
-    this.circle = Path.Circle(this.loc, 25)<br />
-    this.circle.fillColor = "blue"<br />
-    this.state = "left"<br />
-  },<br />
-  update: function()  {<br />
-    if(this.loc.x <= 0)  {<br />
-      this.state = "right"<br />
-    } else if(this.loc.x >= view.size.width)  {<br />
-      this.state = "left"<br />
-    }<br />
-<br />
-    if(this.state == "left")  {<br />
-      this.loc.x -= 2<br />
-    } else {<br />
-      this.loc.x += 2<br />
-    }<br />
-<br />
-    this.rect.position = this.loc<br />
-    this.circle.position = this.loc<br />
-  },<br />
-})<br />
-<br />
-var moving_rects = new Array()<br />
-for(var i = 0; i < 10; i++)  {<br />
-  moving_rects.push(new MovingRectangle())<br />
-}<br />
-<br />
-function onFrame(event)  {<br />
-  for(i in moving_rects)  {<br />
-    moving_rects[i].update()<br />
-  } <br />
-}<br />
-</code>
+<pre>
+var MovingRectangle = Base.extend({
+  initialize: function()  {
+    this.loc = Point.random() * view.size
+    this.rect = Path.Rectangle(this.loc, new Size(50,50))
+    this.circle = Path.Circle(this.loc, 25)
+    this.circle.fillColor = "blue"
+    this.state = "left"
+  },
+  update: function()  {
+    if(this.loc.x <= 0)  {
+      this.state = "right"
+    } else if(this.loc.x >= view.size.width)  {
+      this.state = "left"
+    }
+
+    if(this.state == "left")  {
+      this.loc.x -= 2
+    } else {
+      this.loc.x += 2
+    }
+
+    this.rect.position = this.loc
+    this.circle.position = this.loc
+  },
+})
+
+var moving_rects = new Array()
+for(var i = 0; i < 10; i++)  {
+  moving_rects.push(new MovingRectangle())
+}
+
+function onFrame(event)  {
+  for(i in moving_rects)  {
+    moving_rects[i].update()
+  } 
+}
+</pre>
 <script type='text/paperscript' canvas='animate_canvas_two'>
   project.currentStyle = {
     strokeColor: "black"

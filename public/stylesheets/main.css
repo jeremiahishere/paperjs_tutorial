@@ -1,0 +1,12 @@
+body {
+  width: 800px;
+  margin: auto;
+  padding: 25px;
+}
+pre {
+  margin: 5px;
+  padding: 5px;
+  background-color: #DDDDDD;
+  font-family: "Courier New", monospaced;
+  font-size: 90%;
+}
