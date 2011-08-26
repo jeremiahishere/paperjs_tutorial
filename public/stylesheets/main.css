@@ -10,3 +10,8 @@ pre {
   font-family: "Courier New", monospaced;
   font-size: 90%;
 }
+
+canvas {
+  outline: 1px solid #DDDDDD;
+  margin: 5px;
+}

@@ -1,0 +1,22 @@
+<h1>Setting up the Canvas</h1>
+
+<p>Create a script tag with a type of paperscript and a canvas attribute.  The value of the canvas attribute must match the id of a canvas later on the page.  The canvas tag is not self closing so you must have a close tag.</p>
+<p>Set the width and height of the canvas or use a resize attribute with no value.  If resize is used, the canvas will try to set it self to the size of your screen when it initializes or when the screen size changes.
+
+<pre>
+&lt;script type='text/paperscript' canvas='your_canvas'%gt;
+  //put your javsacript/paperscript here
+  var circle = new Path.Circle(view.center, 100)
+  circle.strokeColor = 'blue'
+&lt;/script&gt;
+&lt;canvas id='your_canvas' width='500' height='500'&gt;&lt;/canvas&gt;
+</pre>
+<pre>
+&lt;canvas id='your_resizable_canvas' resize&gt;&lt;/canvas&gt;
+</pre>
+<script type='text/paperscript' canvas='your_canvas'>
+  //put your javsacript/paperscript here
+  var circle = new Path.Circle(view.center, 100)
+  circle.strokeColor = 'blue'
+</script>
+<canvas id='your_canvas' width='500' height='500'></canvas>

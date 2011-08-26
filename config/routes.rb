@@ -1,11 +1,11 @@
 PaperjsTutorial::Application.routes.draw do
   root :to => "pages#index"
 
-  match "tutorials/one" => "tutorials#part_one", :as => "tutorial_part_one"
+  match "tutorials/basics" => "tutorials#basics", :as => "tutorial_basics"
   match "tutorials/shapes" => "tutorials#shapes", :as => "tutorial_shapes"
   match "tutorials/styles" => "tutorials#styles", :as => "tutorial_styles"
   match "tutorials/animation" => "tutorials#animation", :as => "tutorial_animation"
   match "tutorials/objects" => "tutorials#objects", :as => "tutorial_objects"
-  match "tutorials/six" => "tutorials#part_six", :as => "tutorial_part_six"
-  match "tutorials/seven" => "tutorials#part_seven", :as => "tutorial_part_seven"
+  match "tutorials/canvas" => "tutorials#canvas", :as => "tutorial_canvas"
+  match "tutorials/demo" => "tutorials#demo", :as => "tutorial_demo"
 end
