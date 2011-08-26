@@ -1,0 +1,75 @@
+<h1>Basics</h1>
+
+<p>The point is the basic canvas object.  It identifies a location on the canvas.  It is fairly useless by itself.</p>
+<pre>
+var point = new Point(50, 50)
+</pre>
+<script type='text/paperscript'canvas ='point_canvas'>
+//I have had to hack this to make the demo
+//points are not usually visible
+var point1 = new Point(50, 50)
+var point2 = new Point(50, 50)
+var path = new Path(point1, point2)
+path.strokeColor = 'black'
+path.selected = true
+</script>
+<canvas id='point_canvas' width='500' height='100'></canvas>
+<p>Two points can be connected to make a path.</p>
+<pre>
+var point1 = new Point(50, 50)
+var point2 = new Point(150, 50)
+var path = new Path()
+path.add(point1)
+path.add(point2)
+</pre>
+<script type='text/paperscript'canvas ='path_canvas'>
+var point1 = new Point(50, 50)
+var point2 = new Point(150, 50)
+var path = new Path()
+path.add(point1)
+path.add(point2)
+path.strokeColor = 'black'
+path.selected = true
+</script>
+<canvas id='path_canvas' width='500' height='100'></canvas>
+<p>Basic shapes can be put together by using paths.  Setting path.closed to true will join the first and last points to make a closed shape.<p>
+<pre>
+var path = new Path()
+path.add(new Point(25, 25))
+path.add(new Point(75, 25))
+path.add(new Point(75, 75))
+path.add(new Point(25, 75))
+path.closed = true
+</pre>
+<script type='text/paperscript'canvas ='closed_path_canvas'>
+var path = new Path()
+path.add(new Point(25, 25))
+path.add(new Point(75, 25))
+path.add(new Point(75, 75))
+path.add(new Point(25, 75))
+path.closed = true
+path.strokeColor = 'black'
+path.selected = true
+</script>
+<canvas id='closed_path_canvas' width='500' height='100'></canvas>
+<p>Helpers for basic shapes such as rectangles abstract the creation of shapes.  A rectangle can be defined as the top left and bottom right points, or the top left point and a size object.</p>
+<pre>
+var point1 = new Point(25, 25)
+var point2 = new Point(75, 75)
+var rect = new Path.Rectangle(point1, point2)
+
+var point3 = new Point(100, 25)
+var size = new Size(50, 50)
+var rect2 = new Path.Rectangle(point3, size)
+</pre>
+<script type='text/paperscript'canvas ='rect_canvas'>
+var point1 = new Point(25, 25)
+var point2 = new Point(75, 75)
+var rect = new Path.Rectangle(point1, point2)
+rect.strokeColor = 'black'
+var point3 = new Point(100, 25)
+var size = new Size(50, 50)
+var rect2 = new Path.Rectangle(point3, size)
+rect2.strokeColor = 'black'
+</script>
+<canvas id='rect_canvas' width='500' height='100'></canvas>
