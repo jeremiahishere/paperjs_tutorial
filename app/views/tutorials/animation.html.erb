@@ -1,0 +1,87 @@
+<h1>Animation</h1>
+<p>Animation is handled automatically by the onFrame method.  It is called up to 60 times per second to animate the canvas.</p>
+<p>The rotate and scale methods adjust the attributes by the specified amount instead of setting a value so they can be used in animation.</p>
+<code>
+var rect = Path.Rectangle(view.center, new Size(50, 50))<br />
+<br />
+function onFrame(event)  {<br />
+&nbsp;&nbsp;rect.rotate(1)<br />
+<br />
+&nbsp;&nbsp;if(rect.segments[0].point.getDistance(rect.segments[1].point, true) < 10000)  {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;rect.scale(1.005)<br />
+&nbsp;&nbsp;} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;rect.scale(0.5)<br />
+&nbsp;&nbsp;}<br />
+}<br />
+</code>
+<script type='text/paperscript' canvas='animate_canvas'>
+  project.currentStyle = {
+    strokeColor: "black"
+  }
+  var rect = Path.Rectangle(view.center, new Size(50, 50))
+
+  function onFrame(event)  {
+    rect.rotate(1)
+
+    if(rect.segments[0].point.getDistance(rect.segments[1].point, true) < 10000)  {
+      rect.scale(1.005)
+    } else {
+      rect.scale(0.5)
+    }
+  }
+</script>
+<canvas id='animate_canvas' width='500' height='200'></canvas>
+<p>Movement can be animated by setting the position of the path.  Moving the actual animation logic outside of the onFrame method makes your life easier when the projec gets bigger.</p>
+<code>
+var rect = Path.Rectangle(view.center, new Size(50,50))<br />
+var rect_state = "left"<br />
+<br />
+function update_position_and_save_state(obj, state)  {<br />
+&nbsp;&nbsp;if(state == "left")  {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;obj.position.x -= 2<br />
+&nbsp;&nbsp;} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;obj.position.x += 2<br />
+&nbsp;&nbsp;}<br />
+<br />
+&nbsp;&nbsp;if(obj.position.x <= 0)  {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return "right"<br />
+&nbsp;&nbsp;} else if(obj.position.x >= view.size.width)  {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return "left"<br />
+&nbsp;&nbsp;} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return state<br />
+&nbsp;&nbsp;}<br />
+}<br />
+<br />
+function onFrame(event)  {<br />
+&nbsp;&nbsp;rect_state = update_position_and_save_state(rect, rect_state)<br />
+}<br />
+</code>
+<script type='text/paperscript' canvas='animate_canvas_two'>
+  project.currentStyle = {
+    strokeColor: "black"
+  }
+
+  var rect = Path.Rectangle(view.center, new Size(50,50))
+  var rect_state = "left"
+
+  function update_position_and_save_state(obj, state)  {
+    if(state == "left")  {
+      obj.position.x -= 2
+    } else {
+      obj.position.x += 2
+    }
+
+    if(obj.position.x <= 0)  {
+      return "right"
+    } else if(obj.position.x >= view.size.width)  {
+      return "left"
+    } else {
+      return state
+    }
+  }
+
+  function onFrame(event)  {
+    rect_state = update_position_and_save_state(rect, rect_state)
+  }
+</script>
+<canvas id='animate_canvas_two' width='500' height='200'></canvas>

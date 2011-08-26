@@ -17,7 +17,7 @@ class TutorialsController < ApplicationController
   end
 
   # animation example using onFrame
-  def part_four
+  def animation
   end
 
   # objects
