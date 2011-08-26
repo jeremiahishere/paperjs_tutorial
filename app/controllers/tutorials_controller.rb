@@ -21,6 +21,6 @@ class TutorialsController < ApplicationController
   end
 
   # objects
-  def part_five
+  def objects
   end
 end
